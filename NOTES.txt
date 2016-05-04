@@ -1,0 +1,75 @@
+links:
+   old book
+      https://books.google.ca/books/about/Principles_of_neurodynamics.html?id=7FhRAAAAMAAJ&hl=en
+   current book
+      http://neuralnetworksanddeeplearning.com/chap1.html
+   current book location:
+      http://neuralnetworksanddeeplearning.com/chap1.html#learning_with_gradient_descent
+
+ch 1
+   math
+      w dot x = let ret = 0; for j in 0..w.len() { ret += sum(w[j], x[j]) }
+      (a, b, c)^T = transpose operation which turns a row vector into column vector
+   perceptrons = outdated model
+      -takes several binary inputs (x)
+      - produces binary output (o)
+      -takes weight for each input (w)
+      -threshold value determines if output is 0 or 1 (bias = -threshold, b = bias)
+      -example1:
+         tmp = sum(w[j] * x[j]);
+         output = if (tmp <= threshold) { 0 } else { 1 }
+      -simplified
+         output = if ((dot(w, x) + b) <= 0) { 0 } else { 1 }
+      -bias/threshold determines for easy it is for perceptron to fire
+      -input layer
+         -has no inputs, but ouputs data to feed the rest of network
+      -diagram
+         weight on arrows
+         circle has threshold
+      -boolean (and, or, nand) can be implemented with perciptrons
+         -NAND
+            -any computation can be be expressed as NAND
+            -perceprtron: 2 inputs, weight = -2, bias = 3
+            - in => out
+            - 00 or 01 or 10 => 1
+            - 11 => 0
+      -learning algorithms automatically tune weights and biases
+         -happens in response to external stimuli
+   sigmoid neuron = logistic neurons
+      -more up to date than perceptrons
+      -perceptrons can't do small changes that slightly affects output
+      -w + w' = output + output'
+      -instead of taking 1 or 0, can take range between 1 and 0.
+      -o = sigmoid function (activation function)
+         -z = dot(w, x) + b
+         -o(z) = 1/(1+e^(-z))
+         -when z is large and positive, e^(-z) about equal 0, output is 1
+         -when z is very negative, e^(-z) about equal infinity, and o(z) about equal 0
+         -when z is modest size, sigmoid neurons deviate from perceptron
+      -w' + b' = output' (linear function)
+   architecture
+      middle layers = hidden layers (MLP aka multilayer perceptrons (also called perceptrons, they're sigmoid))
+      feedforward = output from one layer is used as input to the next layer
+         -no loops, information gets feed forward, not back
+         -if we had loops, input to o depends on output
+      recurrent neural networks (less powerful, but similar to how brain works)
+         -has feedback loops
+         -some neurons fire for specific time, then become quiescent (not doing anything)
+         -firing can simulat eother neurons
+         -loops won't cause problems, since output only affects it's input at later time, not instantly.
+   gradient descent
+         -2 problems, first break a big number into digits, then recognize each digit
+         -segmentation problem = breaking a bunch of numbers into digits
+         x = training input (784 pixels)
+         y = y(x) = desired output (10 possible digits)
+         a = vector of output when is is input
+         w = collection of weights
+         b = biases
+         n = total training inputs
+         -cost function (loss or objective function)
+            -C = quadratic cost function, mean squared error
+            C(w, b) = (1/(2*n))len(sum(y(x) - a))^2
+            -checks how well approximation is
+            -output C(w, b) about equal 0 when y(x) = a for all x
+
+
