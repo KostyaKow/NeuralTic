@@ -68,7 +68,7 @@ ch 1
          n = total training inputs
          -cost function (loss or objective function)
             -C = quadratic cost function, mean squared error
-            C(w, b) = (1/(2*n))len(sum(y(x) - a))^2
+            C(w, b) = (1/(2*n))len(sum(y(x) - a)^2)
             -checks how well approximation is
             -output C(w, b) about equal 0 when y(x) = a for all x
 
