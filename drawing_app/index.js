@@ -37,18 +37,10 @@ function drawInitHtml(state) {
 
 }
 
-function initMouseDown() {
-   var mouseDown = 0;
-   document.body.onmousedown = function() {
-       mouseDown = 1;
-   }
-   document.body.onmouseup = function() {
-       mouseDown = 0;
-   }
 
-}
 
 function init() {
+   initMouseDown();
 
    var content = $('#content');
 
@@ -58,8 +50,9 @@ function init() {
 
 
    $('.pix').each(function() {
-      $(this).click(function() {
-         $(this).css('background-color', 'white');
+      $(this).mouseleave(function() { //hover or mouseleave
+         if (mouseDown)
+            $(this).stop().css('background-color', 'white');
       });
    });
 
@@ -68,4 +61,16 @@ function init() {
 $(function() {
    init();
 });
+
+
+mouseDown = 0;
+function initMouseDown() {
+   document.body.onmousedown = function() {
+       mouseDown = 1;
+   }
+   document.body.onmouseup = function() {
+       mouseDown = 0;
+   }
+
+}
 
