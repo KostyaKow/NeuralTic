@@ -1,1 +1,4 @@
 *.swp
+webgl-examples/
+glUtils.js
+sylvester.js

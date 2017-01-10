@@ -2,39 +2,35 @@
 
 <html>
 <head>
+
+    <script id="shader-fs" type="x-shader/x-fragment">
+        void main(void) {
+            gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+        }
+    </script>
+
+    <!-- Vertex shader program -->
+    <script id="shader-vs" type="x-shader/x-vertex">
+      attribute vec3 aVertexPosition;
+      uniform mat4 uMVMatrix;
+      uniform mat4 uPMatrix;
+      void main(void) {
+        gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+      }
+    </script>
+
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   <script src='index.js'></script>
+   <script src='sylvester.js'></script>
+   <script src='glUtils.js'></script>
 </head>
 <body>
 
-   <style>
-      #content {
-         /*width: 100%;
-         height: 100%;*/
-         border-width: 1px;
-         border-style: solid;
-         border-color: green;
-         cursor: pointer;
-         user-select: none;
-      }
 
-      .pix {
-         width: 3px;
-         height: 3px !important;
-         line-height: 5px !important;
-         background-color: black;
-         display: inline;
-      }
+  <canvas id="glcanvas" >
+    Your browser doesn't appear to support the
+    <code>&lt;canvas&gt;</code> element.
+  </canvas>
 
-      .row {
-         display: block;
-         line-height: 2px !important;
-      }
-   </style>
-
-<div id='content'>
-
-</div>
-
-<script src='index.js'></script>
 </body>
 </html>
