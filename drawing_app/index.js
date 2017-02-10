@@ -102,6 +102,7 @@ function initBuffers(verts, colors) {
 
 }
 
+
 function drawScene() {
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
@@ -151,11 +152,19 @@ function run() {
    drawScene();
 
 
-   setTimeout(function() {
+   function updateScreen() {
+      initBuffers(vertices, colors);
+      drawScene();
+
+   }
+
+   /*setTimeout(function() {
       vertices[1] = 0.9;
       initBuffers(vertices, colors);
       drawScene();
-   }, 1000);
+   }, 1000);*/
+
+
 }
 
 function startWebGL() {
