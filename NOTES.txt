@@ -38,15 +38,15 @@ ch 1
    sigmoid neuron = logistic neurons
       -more up to date than perceptrons
       -perceptrons can't do small changes that slightly affects output
-      -w + w' = output + output'
+      - w + w' = output + output'
       -instead of taking 1 or 0, can take range between 1 and 0.
-      -o = sigmoid function (activation function)
+      - o = sigmoid function (activation function)
          -z = dot(w, x) + b
          -o(z) = 1/(1+e^(-z))
          -when z is large and positive, e^(-z) about equal 0, output is 1
          -when z is very negative, e^(-z) about equal infinity, and o(z) about equal 0
          -when z is modest size, sigmoid neurons deviate from perceptron
-      -w' + b' = output' (linear function)
+      - w' + b' = output' (linear function)
    architecture
       middle layers = hidden layers (MLP aka multilayer perceptrons (also called perceptrons, they're sigmoid))
       feedforward = output from one layer is used as input to the next layer
@@ -71,5 +71,8 @@ ch 1
             C(w, b) = (1/(2*n))len(sum(y(x) - a)^2)
             -checks how well approximation is
             -output C(w, b) about equal 0 when y(x) = a for all x
+
+
+
 
 
